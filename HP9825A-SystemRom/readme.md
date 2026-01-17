@@ -1,0 +1,3 @@
+# HP 9825A System ROM PCBs
+
+The folder contains two KiCAD projects for the required two PCBs. Note: PCB thickness for the main carrier PCB should be 1.6-1.8mm for the socket to work, the ROM carrier should be as thin as possible, e.g. 1mm or even 0.8mm...
