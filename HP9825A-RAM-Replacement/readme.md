@@ -26,9 +26,16 @@ And: ta-da! It works!
 
 Note that there is an unpopulated chip on the board... that is a leftover from the process that I missed; unused chip that got removed and I didn't remove it from the PCB. Whoops. Revision B here has that fixed.
 
+## Configuration!
+
+The address space of the 9825 is a 15-bit word space. I.e. 32k 2-byte addresses for a grand total of 64k byte. It's a bit of a twist to think in words when you are used to bytes, but this is how it works. Also, that memory space is strictly divided into the lower range for ROMs and the upper range for RAM. The CPU demands that the upper edge of addressable memory is RAM; it puts some floating point registeres there that can't be moved. The system ROM also puts all its core variables and the call stack there. This is why the upper 8k bytes are fixed on my replacement baord. It will *always* react to that. Then, you can add more 8k blocks from top to bottom to get 16, 24 and 32 kbytes of RAM. This setting has to be mirrored by the DIP switches on the CPU PCB, since those will prevent the "STM" signal to reach the RAM at all otherwise.
+
+The important side note is: the expansion ROMs[^2] are hard coded to specific addresses. And that means that the 24kbyte version is the maximum RAM that can still use all the available expansion modules. The 32k version has a few no-go expansion modules and mixing these might cause damage to the circuitry. I'm keeping mine at 24k for that reason!
+
 ## Possible optimization?
 
 I am not 100% sure if the "MEB" signal needs to be handled at all - it is "memory busy" I'd guess, to signal the CPU that the RAM isn't ready to process the request. It is tied to the refresh cycle and other elements, so I kept it. Since it's open collector, it should be easy enough to test: disconect the bus line and see if it still works, but right now, I'm too happy that it works at all to try something crazy like this!
 
 
-[^1] later model revisions did use the term "computer", but this is specifically for the base model "A", so I'll call it calculator anyhow
+[^1]: later model revisions did use the term "computer", but this is specifically for the base model "A", so I'll call it calculator anyhow
+[^2]: which are a must have!
