@@ -11,3 +11,5 @@ After finally getting the "card enable" line set up correct in "Rev.B", I still 
  2. the second issue is pretty much caused by HP. They have put a set of bus transceivers in between the system IDA bus and the expansion slots. Those decouple all 16 IDA bus lines, but all other signals are passed in "as is". No bit deal. But somewhere it seems to have gotten lost, that these are INVERTING TRANSCEIVERS! So both address and data arrive and go out from the option ROMs in a "positive logic" fashion. I set up my ROMs to handle the reversed and inverted bit pattern that the system ROM needs, so again: didn't *quite* work as expected. And that took some time to find out...
 
 Anyhow: it works now! My system is running on an almost full complement of ROM cartridges! All I'm missing is the "mass storage" (aka "disk IO") ROM... anybody got a source of that somewhere?
+
+<img width="1280" height="955" alt="image" src="https://github.com/user-attachments/assets/eefc4d89-4338-4e78-9e61-fe39d6f4c8bc" />
