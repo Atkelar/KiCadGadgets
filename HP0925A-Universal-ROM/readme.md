@@ -1,0 +1,3 @@
+# Universal ROM Cartridge
+
+This project is a KiCAD drawing for a universal ROM cartridge. It consists of address latches and decoders, a DIP switch block and two EEPROMs. The idea is to have all the option ROMs that the 9825 had on one cartridge - pretty much like the "B" model had - but still inside the regular expansion slot. This way, one can "emulate" any configuration of option ROMs at the push of a button....
